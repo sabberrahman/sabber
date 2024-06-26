@@ -24,7 +24,7 @@ async function getData() {
 export default async function ProjectsPage(){
    const data: ProjectsCard[] = await getData()
     return (
-        <section className='max-w-full w-full px-4 md:px-8 mx-auto'>
+        <section className='max-w-7xl mx-auto px-4 md:px-8 py-5'>
             <h1 className="text-4xl font-semibold lg:text-5xl pt-5">Projects</h1>
             <p className="leading-7 text-muted-foreground mt-1">check out what projects i have created</p>
 

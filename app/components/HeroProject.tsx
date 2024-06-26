@@ -27,10 +27,10 @@ export async function FavoriteProjects() {
 
   
   return (
-    <div className='py-12 grid md:grid-cols-3 gap-4 sm:gap-12 grid-cols-1'>
-        <div className="col-span-1"> 
+    <div className='py-12 grid md:grid-cols-3 gap-4 sm:gap-12 grid-cols-1 max-w-7xl mx-auto px-4 md:px-8 py-5'>
+        <div className="col-span-1 md:order-2"> 
             
-            <h1 className="text-4xl font-medium md:hidden chakra">Recent Projects</h1>
+            <h1 className="text-2xl font-medium md:hidden ">Some of my <span className="text-blue-500 chakra ">Recent Projects</span></h1>
             <Image
             src={pfp}
             className="object-cover bg-opacity-60 hidden md:block rounded-3xl bg-gray-100"
@@ -51,7 +51,7 @@ export async function FavoriteProjects() {
 
 
               {data.map((item)=>(
-                <div className="group block"  key={item._id}>
+                <div className="group block md:order-1"  key={item._id}>
 
                    <div className=" rounded-2xl relative">
                     <Image src={item.imageUrl}

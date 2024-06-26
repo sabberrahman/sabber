@@ -3,7 +3,7 @@ import me from "../../public/other/orca-image-340892589.jpeg";
 import Image from "next/image";
 export function AboutSection() {
   return (
-    <div className="grid gird-cols-1 lg:grid-cols-3 gap-4 mt-10">
+    <div className="grid gird-cols-1 lg:grid-cols-3 gap-4 mt-10 max-w-7xl mx-auto px-4 md:px-8 py-5">
       <Card className="col-span-1 lg:col-span-2 border-none bg-gray-100 p-8">
         <h1 className="text-4xl lg:text-6xl">
           Passionate versitile Web Developer who loves to create
