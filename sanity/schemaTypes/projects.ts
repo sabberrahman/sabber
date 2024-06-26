@@ -1,0 +1,40 @@
+import { defineField, defineType } from "sanity";
+
+export const projectsType = defineType({
+    name:'project',
+    title:'Projects',
+    type:'document',
+    fields:[
+        defineField({
+            name:'title',
+            title:'Title',
+            type:'string',
+        }),
+        defineField({
+            name:'image',
+            title:'Image',
+            type:'image',
+        }),
+        defineField({
+            name:'description',
+            title:'Description',
+            type:'text',
+        }),
+        defineField({
+            name:'live',
+            title:'Link_live',
+            type:'url',
+        }),
+        defineField({
+            name:'github',
+            title:'Link_github',
+            type:'url',
+        }),
+        defineField({
+            name:'tags',
+            title:'Tags',
+            type:'array',
+            of:[{type:'string'}]
+        }),
+    ]
+})

@@ -2,7 +2,13 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import {Chakra_Petch ,Space_Grotesk} from "next/font/google"
 
+const chakra_init= Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['500'],
+  variable: '--var--chakra',
+})
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} ${chakra_init.variable}`}>
         <Navbar/>
         {children}
         </body>

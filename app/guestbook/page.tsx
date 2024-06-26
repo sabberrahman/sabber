@@ -5,6 +5,9 @@ import { Label } from "@/components/ui/label";
 import {RegisterLink} from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { Form } from "../components/Form";
+import prisma from "../lib/db";
+import github from "../../public/icons/github-142-svgrepo-com.svg"
+import Image from "next/image";
 
 
 export default function GuestBook(){
@@ -17,15 +20,67 @@ export default function GuestBook(){
                 <CardHeader className="flex flex-col w-full">
                     <Label>Message</Label>
                     <GuestForm />
+                    <ul className="pt-7 gap-y-5 flex flex-col">
+                      <GuestBookEntries/>  
+                    </ul>
+                    
                 </CardHeader>
             </Card>
          </section>
     )
 }
 
+async function GetGuestBookEntry(){
+    const data= await prisma.guestBookEntry.findMany({
+        select:{
+            User:{
+                select:{
+                    firstname: true,
+                    profileimage:true,
+                }
+            },
+            message:true,
+            id:true,
+        },
+
+        orderBy:{
+            createdAt:"desc",
+        },
+
+        take:30,
+    })
+
+    return data;
+}
+
+async function GuestBookEntries(){
+    const data= await GetGuestBookEntry()
+
+    if (data.length === 0) {
+        return null;
+    }
+
+    return data.map((item)=>(
+        <li key={item.id}>
+            <div className="flex items-center">
+                <Image src={github as any} alt="user pfp" 
+                className="w-10 h-10 rounded-lg"
+                />
+           
+                <p className="text-muted-foreground pl-3 break-words">{item.User?.firstname}: {""}
+                    <span className="text-foreground">{item.message}</span>
+                </p>
+            </div>
+        </li>
+    ))
+}
+
+
+
 async function GuestForm(){
    const {getUser}=getKindeServerSession()
    const user = await getUser()
+   console.log(user);
 
     if (user) {
         return (
@@ -35,7 +90,7 @@ async function GuestForm(){
 
     return (
         <div className="flex flex-col justify-between gap-4 md:flex-row mt-2">
-            <Input type="text" placeholder="Write Your Message..." className="outline-none"/>
+            <Input type="text" placeholder="Write Your Message...." className="outline-none"/>
 
             <RegisterLink>
 
