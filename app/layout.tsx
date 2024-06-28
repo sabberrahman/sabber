@@ -15,7 +15,7 @@ const chakra_init= Space_Grotesk({
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "sabberRahman.tsx",
+  title: "Sabber Rahman",
   description: "Full stack web developer",
 };
 
