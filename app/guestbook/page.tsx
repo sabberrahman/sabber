@@ -5,9 +5,13 @@ import { Label } from "@/components/ui/label";
 import {RegisterLink} from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { Form } from "../components/Form";
+import {format} from "date-fns"
 import prisma from "../lib/db";
 import github from "../../public/icons/github-142-svgrepo-com.svg"
 import Image from "next/image";
+import {unstable_noStore as noStore} from "next/cache"
+
+
 
 
 export default function GuestBook(){
@@ -31,6 +35,7 @@ export default function GuestBook(){
 }
 
 async function GetGuestBookEntry(){
+    noStore();
     const data= await prisma.guestBookEntry.findMany({
         select:{
             User:{
@@ -41,6 +46,7 @@ async function GetGuestBookEntry(){
             },
             message:true,
             id:true,
+            createdAt:true,
         },
 
         orderBy:{
@@ -63,12 +69,27 @@ async function GuestBookEntries(){
     return data.map((item)=>(
         <li key={item.id}>
             <div className="flex items-center">
-                <Image src={github as any} alt="user pfp" 
+
+                {item.User?.profileimage ? (
+                     <img  src={item.User?.profileimage as string } alt="user" 
                 className="w-10 h-10 rounded-lg"
                 />
+                ):(
+                    <Image 
+                    src={github}
+                    alt="user" 
+                    className="w-10 h-10 rounded-lg"
+                    />
+                )}
+               
            
-                <p className="text-muted-foreground pl-3 break-words">{item.User?.firstname}: {""}
+                <p className="text-muted-foreground pl-3 break-words"> 
+                    <span className="">
+                        {item.User?.firstname}: {""}
+                    </span>
+                   
                     <span className="text-foreground">{item.message}</span>
+                    <span className="text-xs ml-4">{format(item.createdAt, ' h:mm a dd-MMMM')}</span>
                 </p>
             </div>
         </li>

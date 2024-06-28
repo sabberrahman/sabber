@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 
 async function getData() {
-  const query = `*[_type == 'project'] | order(_createdAt desc) {
+  const query = `*[_type == 'project'] | order(_createdAt asc) {
         title,
           _id,
           live,

@@ -7,10 +7,11 @@ import { LucideArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 async function getData() {
-  const query = `*[_type == 'project'] | order(_createdAt desc) [0...2] {
+  const query = `*[_type == 'project'] | order(_createdAt asc) {
         title,
           _id,
-          link,
+          live,
+          github,
           description,
           tags,
           "imageUrl": image.asset->url

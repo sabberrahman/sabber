@@ -35,21 +35,21 @@ const social =[ {
     icon: github,
     name: "Github",
     username: "@sabberrahman",
-    link: "http://localhost:3000/",
+    link: "https://github.com/sabberrahman",
   },
   {
     id: 2,
     icon: x,
     name: "X / Twitter",
     username: "@sabberdev",
-    link: "http://localhost:3000/",
+    link: "https://x.com/sabberdev",
   },
   {
     id: 3,
     icon: linkedin,
     name: "Linkedin",
     username: "@shohanur-rahman-sabbir",
-    link: "http://localhost:3000/",
+    link: "https://www.linkedin.com/in/shohanur-rahman-sabber-b82416203",
   },]
 
 
