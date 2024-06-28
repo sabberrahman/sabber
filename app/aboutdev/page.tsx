@@ -16,18 +16,16 @@ import { Card } from '@/components/ui/card';
             height={300}
             className='rounded-2xl rotate-6 shadow-md'
             />
-            <h1 className='text-md text-muted-foreground'></h1>
-            <h1 className='chakra text-4xl md:text-5xl mt-1'></h1>
-
-
           </div>
+
+
           <div className='mt-2 flex flex-col justify-start items-start '>
-            <p className='chakra text-xl text-black px-2 break-words opacity-75 md:text-3xl'>i'm <span className='text-3xl text-green-700 flex'>Sabber rahman <Fire/></span> full stack web developer mostly working with <Card className='inline-block text-xl'><Js/></Card> framework to build application <br /> <br />
+            <div className='chakra text-xl text-black px-2 break-words opacity-75 md:text-3xl'>i'm <span className='text-3xl text-green-700 flex'>Sabber rahman <Fire/></span> full stack web developer mostly working with <Card className='inline-block text-xl'><Js/></Card> framework to build application <br /> <br />
             
-            My go-to stack for building new projects is <Card className='inline-block text-xl'><Next/></Card> <Card className='inline-block text-xl'> <Tailwind/></Card> alongside <span className='text-green-700 hover:bg-yellow-200 rounded-md'>ui/Shadcn</span>. For the backend,i use either<span className='inline-block'><Supabase/> </span> or good old <Card className='inline-block text-xl'> <Mongo/></Card> </p>  <br />
+            My go-to stack for building new projects is <Card className='inline-block text-xl'><Next/></Card> <Card className='inline-block text-xl'> <Tailwind/></Card> alongside <span className='text-green-700 hover:bg-yellow-200 rounded-md'>ui/Shadcn</span>. For the backend,i use either<span className='inline-block'><Supabase/> </span> or good old <Card className='inline-block text-xl'> <Mongo/></Card> </div>  <br />
            <p className='chakra text-2xl px-2 break-words'></p> <br />
 
-           <p className='chakra text-xl text-black px-2 break-words opacity-75 md:text-3xl mb-4'>Currently doing my BSc in Compuer Science at <a className='text-green-800 hover:underline hover:bg-green-200' href='https://ius.edu.bd/' target='_blank'> ius.</a> You can find my CSE notes here <a href="https://github.com/sabberrahman/CSE" target='_blank'> <Card className='inline-block text-xl hover:scale-110'><Repo/></Card></a>. when im not coding, i like to listen <a href='https://www.youtube.com/@2centspodcastofficial' target='_blank' className='text-green-700 hover:bg-green-200 rounded-2xl'>@2centPodcast💸</a><a href='https://www.youtube.com/@ThePrimeTimeagen' target='_blank' className='text-green-700 hover:bg-green-200 rounded-2xl'>@ThePrimeTime🤓</a> and binge watch <a href="https://onepiece.fandom.com/wiki/One_Piece_Wiki" target='_blank' className='text-green-700 hover:bg-green-200 rounded-2xl'>@one piece</a></p>
+           <div className='chakra text-xl text-black px-2 break-words opacity-75 md:text-3xl mb-4'>Currently doing my BSc in Compuer Science at <a className='text-green-800 hover:underline hover:bg-green-200' href='https://ius.edu.bd/' target='_blank'> ius.</a> You can find my CSE notes here <a href="https://github.com/sabberrahman/CSE" target='_blank'> <Card className='inline-block text-xl hover:scale-110'><Repo/></Card></a>. when im not coding, i like to listen <a href='https://www.youtube.com/@2centspodcastofficial' target='_blank' className='text-green-700 hover:bg-green-200 rounded-2xl'>@2centPodcast💸</a><a href='https://www.youtube.com/@ThePrimeTimeagen' target='_blank' className='text-green-700 hover:bg-green-200 rounded-2xl'>@ThePrimeTime🤓</a> and binge watch <a href="https://onepiece.fandom.com/wiki/One_Piece_Wiki" target='_blank' className='text-green-700 hover:bg-green-200 rounded-2xl'>@one piece</a></div>
 
             <Image 
             src={pfp}
@@ -37,6 +35,8 @@ import { Card } from '@/components/ui/card';
             className='rounded-2xl -rotate-6 shadow-md bg-opacity-70'
             />
           </div>
+
+
 
           <div className='mt-12'>
             <p className='text-muted-foreground text-sm chakra'>Page last edited: 10:41am 28 june , 2☀24 </p>
