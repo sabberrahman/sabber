@@ -127,3 +127,31 @@ Sign in
         </div>
     )
 }
+
+let count = 0;
+
+async function callGuestBookEntriesPeriodically(intervalInMinutes = 30) {
+    
+    intervalInMinutes = Math.max(1, Math.floor(intervalInMinutes));
+    count++;
+    console.log(count);
+    try {
+      const data = await GuestBookEntries();
+      
+      if (data) {
+       
+        console.log("Guestbook entries:", new Date()); 
+      } else {
+        console.log("No guestbook entries found.");
+      }
+    } catch (error) {
+      console.error("Error fetching guestbook entries:", error);
+    }
+  
+    
+    setTimeout(callGuestBookEntriesPeriodically, intervalInMinutes * 60 * 1000)
+      
+  }
+
+  callGuestBookEntriesPeriodically();
+  callGuestBookEntriesPeriodically(60);

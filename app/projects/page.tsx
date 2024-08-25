@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 
 async function getData() {
-  const query = `*[_type == 'project'] | order(_createdAt asc) {
+  const query = `*[_type == 'project'] | order(_createdAt desc) {
         title,
           _id,
           live,
@@ -30,9 +30,9 @@ export default async function ProjectsPage(){
 
             <div className='py-12 grid md:grid-cols-2 gap-4 sm:gap-12 grid-cols-1'>
               {data.map((item)=>(
-                <div className="group block"  key={item._id}>
+                <div className="group  p-4 border rounded-2xl flex flex-col justify-center items-center"  key={item._id}>
 
-                   <div className=" rounded-2xl relative">
+                   <div className=" rounded-2xl relative flex justify-center items-center">
                     <Image src={item.imageUrl}
                       alt="project image"
                       width={400}
@@ -41,12 +41,12 @@ export default async function ProjectsPage(){
                       />
                     </div>  
 
-                    <div className="mt-4 ">
+                    <div className="mt-4 flex flex-col justify-center items-center">
                       <h2 className="font-meidum text-lg hover:underline">{item.title}</h2>
                        <p className="mt-1 text-muted-foreground line-clamp-3 ">{item.description}</p>
                     </div>
 
-                    <div className="mt-3 flex flex-wrap gap-2">
+                    <div className="mt-3 flex flex-wrap gap-2 md:justify-center items-center">
                       {item.tags.map((tagItem,index)=>(
                         <span key={index} 
                         className="inline-flex items-center rounded-md bg-primary/10 px-3 py-1.5 text-xs sm:text-sm dont-medium text-primary ring-2 ring-inset ring-primary/20"
@@ -54,7 +54,7 @@ export default async function ProjectsPage(){
                       ))}
                     </div>
 
-                    <div className="mt-2 gap-2 flex flex-wrap ">
+                    <div className="mt-4 gap-2 flex flex-wrap ">
                       <Button className="gap-2 hover:underline hover:text-black"><a href={item.live} target="_blank" rel="love"> Live Demo</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
   <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
 </svg>

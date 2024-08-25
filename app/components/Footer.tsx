@@ -5,7 +5,7 @@ import { navigationItems } from "./Navbar";
 
 export function Footer() {
   return (
-    <footer className="my-12">
+    <footer className="my-12 ">
       <ul className="flex flex-wrap justify-center">
         {navigationItems.map((item, index) => (
           <div key={index} className="px-5 py-2">

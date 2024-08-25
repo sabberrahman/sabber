@@ -3,11 +3,11 @@ import { ProjectsCard } from "../lib/interface";
 import { client } from "../lib/sanity";
 import { Button } from "@/components/ui/button";
 import pfp from "../../public/other/luffy.jpg"
-import { LucideArrowUpRight } from "lucide-react";
+import { ArrowUpRight, LucideArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 async function getData() {
-  const query = `*[_type == 'project'] | order(_createdAt asc) {
+  const query = `*[_type == 'project'] | order(_createdAt desc)[0..2] {
         title,
           _id,
           live,
@@ -28,31 +28,18 @@ export async function FavoriteProjects() {
 
   
   return (
-    <div className='py-12 grid md:grid-cols-3 gap-4 sm:gap-12 grid-cols-1 max-w-7xl mx-auto px-4 md:px-8 py-5'>
-        <div className="col-span-1 md:order-2"> 
+    <div>
+      <div className=' grid md:grid-cols-3 gap-4 sm:gap-12 grid-cols-1 max-w-7xl mx-auto px-4 md:px-8 py-5 '>
+        <div className="col-span-1 md:order-2 flex justify-center items-center text-center flex-col"> 
             
             <h1 className="text-2xl font-medium md:hidden ">Some of my <span className="text-blue-500 chakra ">Recent Projects</span></h1>
-            <Image
-            src={pfp}
-            className="object-cover bg-opacity-60 hidden md:block rounded-3xl bg-gray-100"
-            alt="thorfin"
-            />
-             <Link href="#" className="relative  text-lg group mt-3 hidden md:block md:inline-block">
-        <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
-        <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
-        <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
-        <span className="relative flex">View more projects <LucideArrowUpRight/></span>
-        </span>
-        <span className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-lg"></span>
-        </Link>
-            {/* <h1 className="text-3xl font-medium gap-2 text-black flex hover:underline hover:text-blue-500 items-center text-center ml-6">view more projects
-           
-            </h1> */}
+            
+            
         </div>
 
 
               {data.map((item)=>(
-                <div className="group block md:order-1"  key={item._id}>
+                <div className="group block md:order-1 p-4 border rounded-2xl"  key={item._id}>
 
                    <div className=" rounded-2xl relative">
                     <Image src={item.imageUrl}
@@ -94,14 +81,16 @@ export async function FavoriteProjects() {
                 </div>
               ))}
 
-<Link href="#" className="relative inline-block text-lg group mt-3 md:hidden">
-        <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
-        <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
-        <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
-        <span className="relative flex text-center justify-center items-center">View more projects <LucideArrowUpRight/></span>
-        </span>
-        <span className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-lg"></span>
-        </Link>
             </div>
+<div className=" p-8 flex justify-center items-center -mt-4 border-b">
+  <Link href={"/projects"} className="flex justify-center items-center border-b-2 border-b-blue-200 p-2">
+  <h1 className="text-center  text-blue-600 animate-pulse">Show More</h1> 
+  <ArrowUpRight className="w-8 h-8 text-blue-500 animate-pulse"/>
+  </Link>
+   
+   
+   </div>
+    </div>
+    
   );
 }

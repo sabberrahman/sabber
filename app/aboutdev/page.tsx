@@ -39,7 +39,7 @@ import { Card } from '@/components/ui/card';
 
 
           <div className='mt-12'>
-            <p className='text-muted-foreground text-sm chakra'>Page last edited: 10:41am 28 june , 2☀24 </p>
+            <p className='text-muted-foreground text-sm chakra'>Page last edited: 10:41am 25 june , 2☀24 </p>
           </div>
         </div>
     );
