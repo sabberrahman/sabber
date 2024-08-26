@@ -1,15 +1,4 @@
-import Image from "next/image";
-import me from "../../public/1702367598614.jpg"
-import { Card } from "@/components/ui/card";
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-  } from "@/components/ui/tooltip"
-  import { Button } from "@/components/ui/button";
-  import bdFlag from "../../public/other/flag-for-flag-bangladesh-svgrepo-com.svg"
-import { Stars } from "lucide-react";
+
 import { CopyMail } from "./CopyMail";
 import { ABoutBtn } from "./AboutBtn";
 
@@ -35,40 +24,4 @@ export default function Hero_02(){
     )
 }
 
-
-
-
-
-
-
-function BD(){
-  return (
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger className="gap-y-2"> 
-                 <Image 
-                 src={bdFlag}
-                 alt="bd"
-                 className="w-8 h-6 flex justify-center items-center"
-                 /> 
-
-          </TooltipTrigger>
-          <TooltipContent>
-            <p className="text-xl">Dhaka,Bangladesh</p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
-    )
-}
-
-function Flag(){
-  return (
-
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-  </svg>
-  
-    )
-}
 

@@ -39,7 +39,7 @@ export async function FavoriteProjects() {
 
 
               {data.map((item)=>(
-                <div className="group block md:order-1 p-4 border rounded-2xl"  key={item._id}>
+                <div className="group block md:order-1 p-4 border rounded-2xl md:bg-gray-50"  key={item._id}>
 
                    <div className=" rounded-2xl relative">
                     <Image src={item.imageUrl}
@@ -63,7 +63,7 @@ export async function FavoriteProjects() {
                       ))}
                     </div>
 
-                    <div className="mt-2 gap-2 flex flex-wrap ">
+                    <div className="mt-2 gap-2 flex flex-wrap">
                       <Button className="gap-2 hover:underline hover:text-black"><a href={item.live} target="_blank" rel="love"> Live Demo</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
   <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
 </svg>
@@ -84,7 +84,7 @@ export async function FavoriteProjects() {
             </div>
 <div className=" p-8 flex justify-center items-center -mt-4 border-b">
   <Link href={"/projects"} className="flex justify-center items-center border-b-2 border-b-blue-200 p-2">
-  <h1 className="text-center  text-blue-600 animate-pulse">Show More</h1> 
+  <h1 className="text-center  text-blue-600 animate-pulse">View More</h1> 
   <ArrowUpRight className="w-8 h-8 text-blue-500 animate-pulse"/>
   </Link>
    

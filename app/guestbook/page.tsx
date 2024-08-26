@@ -101,7 +101,6 @@ async function GuestBookEntries(){
 async function GuestForm(){
    const {getUser}=getKindeServerSession()
    const user = await getUser()
-   console.log(user);
 
     if (user) {
         return (
@@ -136,7 +135,7 @@ async function callGuestBookEntriesPeriodically(intervalInMinutes = 30) {
     count++;
     console.log(count);
     try {
-      const data = await GuestBookEntries();
+      const data = await GetGuestBookEntry();
       
       if (data) {
        
