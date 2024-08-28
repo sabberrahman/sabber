@@ -66,7 +66,7 @@ export default async function ProjectsPage(){
 
                       <a href={item.github} target="_blank" rel="love">
                       
-                         Open repositary</a></Button> 
+                         Open Repository</a></Button> 
                     </div>
 
                 </div>
